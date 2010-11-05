@@ -1,14 +1,14 @@
-<h1>Contact Us Forms</h1>
-<h4>This is a list of all the Contact Us forms submitted on the site. You also receive copies of these inquiries by email.</h4>
+<h1>Ingreso de Contactos</h1>
+<h4>Esta es una lista de todos los contactos recibidos por medio de la forma de contacto.</h4>
 
 <table class="admin-report" width="545">
 	<thead>
 		<tr>
-      		<th>Name</th>
+      		<th>Nombre</th>
       		<th>Email</th>
-      		<th>Type</th>
-					<th>Order #</th>
-					<th>message</th>
+      		<th>Informaci&oacute;n</th>
+					<th>Empresa</th>
+					<th>Mensaje</th>
 					<th></th>
     	</tr>
   	</thead>
@@ -23,17 +23,14 @@
 				<%= inquiry.email %>
 			</td>
 			<td>
-				<%= inquiry.inquiry_type %>
-			</td>
-			<td>
 				<%= inquiry.order_no %>
 			</td>
 			<td>
 				<%=h truncate(inquiry.message, 100) %>
 			</td>
 			<td>
-				<%= link_to "Check it", object_url(inquiry) %> | 
-	      <%=link_to "Delete it", object_url(inquiry), :method => :delete %>
+				<%= link_to "Ver", object_url(inquiry) %> | 
+	      <%=link_to "Borrar", object_url(inquiry), :method => :delete %>
 	     </td>
 		</tr>
 		<% end %>

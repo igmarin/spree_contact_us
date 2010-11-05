@@ -1,7 +1,7 @@
 class InquiryMailer < ActionMailer::Base
 
     def notification(inquiry)
-        subject    "#{Spree::Config[:site_name]} Contact Us Form Received"
+        subject    "#{Spree::Config[:site_name]} Mensaje Recibido desde el sitio web"
         body       :inquiry => inquiry
         recipients Spree::Config[:contact_form_to]
         bcc        Spree::Config[:contact_form_bcc]
@@ -9,7 +9,7 @@ class InquiryMailer < ActionMailer::Base
     end
     
     def comment_received(comment)
-        subject    "#{Spree::Config[:site_name]} Feedback Received"
+        subject    "#{Spree::Config[:site_name]} Información Recibida"
         body       :comment => comment
         recipients Spree::Config[:contact_form_to]
         bcc        Spree::Config[:contact_form_bcc]

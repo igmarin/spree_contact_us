@@ -1,10 +1,9 @@
-Contact Us Form Received
+Nos ha contactado desde el sitio web
 ========================
 
-From: <%= @inquiry.name %> (<%= @inquiry.email %>)
-Type: <%= @inquiry.inquiry_type %>
-<%= "Order No: #{@inquiry.order_no}" unless @inquiry.order_no.blank? %>
+De: <%= @inquiry.name %> (<%= @inquiry.email %>)
+<%= "Empresa: #{@inquiry.order_no}" unless @inquiry.order_no.blank? %>
 
 ========================
-Message:
+Mensaje:
 <%= @inquiry.message %>

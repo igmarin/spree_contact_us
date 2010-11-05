@@ -1,47 +1,57 @@
-<% content_for :page_title do %>
-	<%= @site_page.page_title rescue 'Charity T-Shirts, Wolfmother, The National, Broken Social Scene, Devendra Banhart, Clap Your Hands Say Yeah, Rilo Kiley...' %>
-<% end %>
+<script>
+$(document).ready(function(){
+	
+  	$( '#luzContacto' ).show();
 
-<% content_for :sidebar_left do %>
-	<%= render :partial => "shared/bands_sidebar",  :locals => { :products => @products, :taxon => @taxon } %>
-<% end %>
-<h1 class="form">CONTACT US</h1>
-<script type="text/javascript">
-	Cufon.replace('h1.form');
+$('#CP').hide();
+ $("#CP").animate( 
+	    {'height':'toggle'}, 'slow	', 'easeOutCirc'
+    );
+
+});
+
 </script>
 
-<%= error_messages_for :inquiry %>
-<div class="generic_form">
-	<% form_for(:inquiry, :url => collection_url) do |f| %>
-	  <p><%= f.label :name, "Your Name" %>
-		   <%= f.text_field :name, :class => 'required' %>
-		</p>
-		<p><%= f.label :email, "Your Email Address" %>
-		   <%= f.text_field :email, :class => 'required email' %>
-		</p>
-		<p><%= f.label :name, "Type of Inquiry" %>
-		   <%= f.select :inquiry_type, INQUIRY_TYPES %>
-		</p>
-		<p><%= f.label :order_no, "Order #" %>
-		   <%= f.text_field :order_no %>
-		</p>
-		<p><%= f.label :message, "Message" %>
-		   <%= f.text_area :message, :class => 'required' %>
-		</p>
-		<p><%= label_tag 'mailing_list', "Send me YBP news and info by email!" %>
-		   <%= check_box_tag 'mailing_list' %>
-		</p>
-	  <p>
-	    <%= submit_tag "Send It!" %>
-	  </p>
-	<% end %>
-	<script>
-	  $(document).ready(function(){
-	    $(".generic_form form").validate();
-	  });
-	  </script>
+<div id="CP">
+<p style="font-size:26px; color:#ffde00; margin-bottom:5px; margin-top:0;"><b>CONTACTO</b></p>
+<div style="height:27px; background-image:url(../images/layout/lineagde.png); margin-left:-50px; margin-top:-25px;"></div>
+    <div class="contacto" style="margin-left: -10px;border-right:1px solid;border-color:#ffde00;color: white;width:74%;height:500px;">
+        <br />
+        
+		<%= error_messages_for :inquiry %>
+		<div class="generic_form">
+			<% form_for(:inquiry, :url => collection_url) do |f| %>
+			  <p><%= f.label :name, "Nombre:" %>&nbsp;&nbsp;&nbsp;&nbsp;
+				   <%= f.text_field :name, :size => 100, :class => 'required' %>
+			  </p>
+				<p><%= f.label :email, "Email:" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				   <%= f.text_field :email,:size => 100, :class => 'required email' %>
+				</p>
+				<p><%= f.label :order_no, "Empresa:" %>&nbsp;&nbsp;&nbsp;
+				   <%= f.text_field :order_no,:size => 100 %>
+				</p>
+				<p><%= f.label :message, "Mensaje:" %>&nbsp;&nbsp;&nbsp;&nbsp;
+				   <%= f.text_area :message, :cols => 72, :rows => 15, :class => 'required', :style => "vertical-align: top;" %>
+				</p>
+			    <%= image_submit_tag("layout/enviar.png", :style => "margin-left:506px;") %>
+			<% end %>
+			<script>
+			  $(document).ready(function(){
+			    $(".generic_form form").validate();
+			  });
+			  </script>
+		</div>	
+    </div>
+    <div style="margin-top:-475px;margin-left:625px;height:430px;">
+        <div style="margin-left:25px;"><%= image_tag("layout/altenergy.png") %></div>
+		<br />
+        <p style="margin-left:30px;">Av. Tecnol&oacute;logico 505<br />
+            Industrial Juli&aacute;n de Obreg&oacute;n<br />
+            Le&oacute;n, Gto., M&eacute;xico CP: 37290<br />
+			<br />
+            Tel/Fax:<span style="color:#ffde00;"> +52 (477) 711 5010<br /><br />
+            email: ventas@altenergy.mx<br />
+            www.altenergy.mx</span>
+        </p>
+    </div>
 </div>
-
-<% content_for :sidebar_right do %>
-	<%= render :partial => 'shared/dynamic_sidebars' %>
-<% end %>
